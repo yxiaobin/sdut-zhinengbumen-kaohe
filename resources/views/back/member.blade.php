@@ -8,6 +8,23 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12">
+            <div class="card-header">
+                <a href="{{url("/adminindex")}}">
+                    {{--<input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="综合评价">--}}
+                    <input   type="button" class="btn btn-primary" value="综合评价">
+                </a>
+                <a href="{{url("/pjall")}}">
+                    <input   type="button" class="btn btn-primary" value="评价汇总表">
+                </a>
+                <a href="{{url("/member")}}">
+                    <input type="button" class="btn btn-primary" value="评价明细表">
+                </a>
+                <a href="{{url("/stucom")}}">
+                    <input type="button" class="btn btn-primary" value="学生代表统计">
+                </a>
+                {{--<a download="评价表" id="excelOut1" href="#" class="btn btn-primary">导出职能部门</a>--}}
+                {{--<a download="评价表" id="excelOut2" href="#" class="btn btn-primary">导出学院</a>--}}
+            </div>
             {{--<div class="card-header">--}}
                 {{--<a href="#">--}}
                     {{--<input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="导入学生代表">--}}
@@ -124,7 +141,11 @@
                                     {{$page->phone}}
                                 </td>
                                 <td>
-                                    {{$page->finish}}
+                                    @if($page->finish == 0)
+                                        <p style="color: red">还未投票</p>
+                                    @else
+                                        <p style="color:cornflowerblue">投票完成</p>
+                                    @endif
                                 </td>
                                 <td>
                                     发送时间
@@ -133,9 +154,9 @@
                                     {{$page->message_num}}
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="genID({{$page->stuid}})">
-                                        生成特定URL
-                                    </a>
+                                    {{--<a href="javascript:void(0);" onclick="genID({{$page->stuid}})">--}}
+                                        {{--生成特定URL--}}
+                                    {{--</a>--}}
                                     <script>
                                         function genID(num) {
                                             var stuid = num;
@@ -147,7 +168,6 @@
                                             window.open(url);
                                         }
                                     </script>
-
                                 </td>
                             </tr>
                         @endforeach
@@ -291,6 +311,7 @@
             for (var i = 1; i < icheck.length; i++) {
                 if (icheck[i].checked) {
                     console.log(icheck[i].value);
+
                     items.push(icheck[i].value);        // 将id都放进数组
                 }
             }
@@ -359,8 +380,7 @@
             });
 
         });
-
-
     </script>
+
 @endsection
 

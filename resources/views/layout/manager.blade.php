@@ -127,12 +127,6 @@
                                 </div>
                                 <ul class="action">
                                     <li>
-
-                                        <a href="#">
-                                            信息修改
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a href="{{url("/logout")}}">
                                             退出
                                         </a>

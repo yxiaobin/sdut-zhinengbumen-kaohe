@@ -22,7 +22,8 @@ class FrontController extends Controller
     public function dati(Request $request){
         if($request->input('stuid')!= null){
             $stuid = $request->input('stuid');
-            $member = Member::where("stuid",'=',$stuid)->get()[0];
+//            dd($request->input('stuid'));
+            $member = Member::where("id",'=',$stuid)->get()[0];
             $bumens  = Bumen::all();
             $school = School::find($member->school_id);
             return view("diaocha.s1",compact('bumens','school','member'));
@@ -32,7 +33,8 @@ class FrontController extends Controller
 
     }
     public function index($id){
-          $member = Member::where('stuid','=',$id)->get();
+
+        $member = Member::where('id','=',$id)->get();
         if(count($member)==0){
             $data = [
                 'status' => 0,
@@ -40,11 +42,11 @@ class FrontController extends Controller
                 'msg' => '你没有答题的权限！'
             ];
         }else{
-            $member = Member::where('stuid','=',$id)->get()[0];
+            $member = Member::where('id','=',$id)->get()[0];
             if($member->finish==1){
                 $data = [
                     'status' => 2,
-                    'stuid' => $member->stuid,
+                    'stuid' => $member->id,
                     'msg' => '你已经完成答题了，不能再次答题了！'
                 ];
             }
@@ -53,7 +55,7 @@ class FrontController extends Controller
 //                session(['stuid'=>$member->stuid]);
                 $data = [
                     'status' => 1,
-                    'stuid' => $member->stuid,
+                    'stuid' => $member->id,
                     'msg' => '即将跳转到答题页面，请做好准备！'
                 ];
             }

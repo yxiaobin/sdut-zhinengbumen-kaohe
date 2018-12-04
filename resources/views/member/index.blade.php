@@ -124,7 +124,11 @@
                                     {{$page->phone}}
                                 </td>
                                 <td>
-                                    {{$page->finish}}
+                                    @if($page->finish == 0)
+                                        <p style="color: red">还未投票</p>
+                                    @else
+                                        <p style="color:cornflowerblue">投票完成</p>
+                                    @endif
                                 </td>
                                 <td>
                                     发送时间
@@ -133,7 +137,7 @@
                                     {{$page->message_num}}
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="genID({{$page->stuid}})">
+                                    <a href="javascript:void(0);" onclick="genID({{$page->id}})">
                                         生成特定URL
                                     </a>
                                     <script>
@@ -333,7 +337,10 @@
             for (var i = 1; i < icheck.length; i++) {
                 if (icheck[i].checked) {
                     console.log(icheck[i].value);
-                    items.push(icheck[i].value);        // 将id都放进数组
+                    let  x =  "start?" + window.btoa("id=" + icheck[i].value);
+                    x = x + '@'+ icheck[i].value;
+                    console.log(window.btoa(icheck[i].value));
+                    items.push(x);        // 将id都放进数组
                 }
             }
             if (items == null || items.length == 0)        // 当没选的时候，不做任何操作
