@@ -88,7 +88,7 @@ class MemberController extends Controller
 
         for ($i=0; $i<count($request['keys']); $i++) {
 //          $request['keys'][0] = 'start?aWQ9MTAy';   Request中存取了什么
-            切割学号与id号
+//            切割学号与id号
             $result = explode('@', $request['keys'][$i]);
 //          构造网站
             $html = $url .$result[0];
