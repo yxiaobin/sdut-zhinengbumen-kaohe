@@ -12,7 +12,7 @@
 */
 
 //登录页面
-Route::get('/', 'LoginController@index');
+Route::get('/', 'LoginController@index1');
 Route::resource('login', 'LoginController');
 Route::get('/logout',['as'=>"logout",'uses'=>"LoginController@logout"]);//登出
 //登录验证中间件组
