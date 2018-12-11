@@ -52,8 +52,8 @@ Route::middleware(['web','CheckLogin'])->group(function (){
         Route::post('/delmany',['as'=>"delmany",'uses'=>"MemberController@delmany"]);//学生批量删除
         Route::post('/sendmsg',['as'=>"sendmsg",'uses'=>"MemberController@sendmsg"]);//学生发送短信
         //文件导入导出
-        Route::get('excel/export','ExcelController@export');
-        Route::post('excel/import','ExcelController@import'); //学生批量导入
+        Route::get('excel/export','ExcelCOntroller@export');
+        Route::post('excel/import','ExcelCOntroller@import'); //学生批量导入
     });
 
 });
