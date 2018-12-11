@@ -75,6 +75,7 @@ class MemberController extends Controller
     }
 //发送短信
     public  function  sendmsg(Request $request){
+        $bmsg = "除去已完成答题或短信已经发送次数到达三次者之外全部已发送";
         for ($i=0; $i<count($request['keys']); $i++) {
 //          $request['keys'][0] = 'start?aWQ9MTAy';   Request中存取了什么
 //          切割学号与id号
@@ -96,11 +97,12 @@ class MemberController extends Controller
                 $aliSms = new AliSms();
                 $res = $aliSms->sendSms($phoneNumbers, 'SMS_152281024', ['year' => $term->name, 'code' => $result[0]]);
             }
+
         }
         if ($res) {
             $data = [
                 'status' => 0,
-                'msg' =>'发送成功'
+                'msg' => $bmsg
             ];
         } else {
 
