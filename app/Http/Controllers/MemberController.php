@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Member;
 use App\Term;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Mrgoon\AliSms\AliSms;
@@ -25,7 +26,6 @@ class MemberController extends Controller
         }else{
             $members = Member::all();
         }
-
         //dd($members);
         $z2 = $request->input("term");
         if($z2 != -1){
@@ -45,7 +45,7 @@ class MemberController extends Controller
         if($z4 != -1&& count($members)>0){
             $members = $members->where('finish','=',$z4);
         }
-        return view("back.member",compact('members','z1','z2','z3','z4'));
+        return view("member.index",compact('members','z1','z2','z3','z4'));
     }
 
 
@@ -81,11 +81,12 @@ class MemberController extends Controller
             $result = explode('@', $request['keys'][$i]);
 //          构造网站
             $html = $result[0];
-//          寻找member //不完善
+//          寻找member
             $res = Member::where('id', '=',$result[1])->get()[0];   // 遍历删除
             if ($res->finish == 0 && $res->message_num <3) {
 //           发送次数加1
                 $res->message_num = $res->message_num +1;
+                $res->updated_at = Carbon::now();
                 $res->save();
                 //构造电话号码
                 $phoneNumbers = $res->phone;

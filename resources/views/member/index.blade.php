@@ -131,7 +131,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    发送时间
+                                    {{$page->updated_at}}
                                 </td>
                                 <td>
                                     {{$page->message_num}}
