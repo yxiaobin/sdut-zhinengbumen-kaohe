@@ -360,11 +360,13 @@
                 }, function(data) {
                     if (data.status == 0) {
                         layer.msg(data.msg, { icon: 6});
-                        location.href = location.href;
+
+                        // location.href = location.href;
                     } else {
                         layer.msg(data.msg, { icon: 5});
                     }
-                    window.location.reload();
+                    var t=setTimeout("window.location.reload()",5000);
+
                 });
             });
 
