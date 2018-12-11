@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        /**
+         * 阿里云短信
+         */
+        Mrgoon\AliSms\ServiceProvider::class,
     ],
 
     /*
@@ -226,6 +230,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
+        /**
+         * 阿里云短信
+         */
+        'AliSms'=>Mrgoon\AliSms\ServiceProvider::class,
     ],
 
 ];

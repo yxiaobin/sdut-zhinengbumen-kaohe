@@ -137,9 +137,12 @@
                                     {{$page->message_num}}
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="genID({{$page->id}})">
-                                        生成特定URL
-                                    </a>
+                                    {{--<a href="javascript:void(0);" onclick="genID({{$page->id}})">--}}
+                                        {{--生成特定URL--}}
+                                    {{--</a>--}}
+                                    {{--<a href="{{url("/test")}}">--}}
+                                        {{--URL--}}
+                                    {{--</a>--}}
                                     <script>
                                         function genID(num) {
                                             var stuid = num;
