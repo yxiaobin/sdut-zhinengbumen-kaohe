@@ -40,16 +40,16 @@
                                     <td>{{$member->usrname}}</td>
                                     <td>
                                         @if($member->isadmin==1)
-                                            <p  style="font-size: 19px; color: red">管理员</p>
+                                            <p  style="font-size: 14px; color: black">管理员</p>
                                         @else
-                                            <p style="font-size: 19px; color: black">普通用户</p>
+                                            <p style="font-size: 14px; color: black">普通用户</p>
                                         @endif
                                     </td>
                                     <td>
                                         @if($member->islogin==1)
-                                            <p  style="font-size: 19px; color: greenyellow">允许登录后台</p>
+                                            <p  style="font-size: 14px; color: black">允许登录后台</p>
                                         @else
-                                            <p  style="font-size: 19px; color: black">无权限</p>
+                                            <p  style="font-size: 14px; color: black">无权限</p>
                                         @endif
                                     </td>
                                     <td>
@@ -63,11 +63,17 @@
                                         </a>
                                         @if($member->isadmin == 0)
                                             <a href="{{url("setadmin/$member->id")}}">
-                                                <input type="button" class="btn btn-xs btn-primary" value="设为管理员">
+                                                <input @if($member->id == session('id'))
+                                                       disabled="disabled"
+                                                       @endif
+                                                       type="button" class="btn btn-xs btn-primary" value="设为管理员">
                                             </a>
                                         @else
                                             <a href="{{url("setadmin/$member->id")}}">
-                                                <input type="button" class="btn btn-xs btn-default" value="取消管理员">
+                                                <input @if($member->id == session('id'))
+                                                       disabled="disabled"
+                                                       @endif
+                                                       type="button" class="btn btn-xs btn-default" value="取消管理员">
                                             </a>
                                         @endif
                                         @if($member->islogin == 0)

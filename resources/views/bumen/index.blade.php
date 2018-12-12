@@ -15,10 +15,10 @@
                         }
                         @endphp
                         <li role="tab1" class="@if($tab==1){{"active"}}@endif">
-                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">职能部门列表</a>
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">部门列表</a>
                         </li>
                         <li role="tab2" style="width:160px" class="@if($tab==2){{"active"}}@endif">
-                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加新的职能部门</a>
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加新部门</a>
                         </li>
                     </ul>
                 </div>

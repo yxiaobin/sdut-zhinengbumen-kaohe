@@ -188,8 +188,8 @@
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <br>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">文件格式</label>
-                                <div class="col-md-9">
+                                <label class="col-md-3 control-label" style="padding-left: 12%;">文件格式</label>
+                                <div class="col-md-7">
                                     <a href="{{url("/download")}}">
                                         <input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="下载模板">
                                     </a>
@@ -197,15 +197,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">选择文件</label>
-                                <div class="col-md-9">
+                                <label class="col-md-3 control-label" style="padding-left: 12%;" >选择文件</label>
+                                <div class="col-md-7">
                                     <input type="file" class="form-control"  name="file">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">选择学期</label>
-                                <div class="col-md-9">
+                                <label class="col-md-3 control-label" style="padding-left: 12%;" >选择学期</label>
+                                <div class="col-md-7">
                                     <select name="termid" id="" class="form-control">
                                         @php
                                         $keys = \App\Term::all();
@@ -221,7 +221,7 @@
                             <br>
                             <div class="form-group">
                                 <label class="col-md-3 control-label"></label>
-                                <div class="col-md-9">
+                                <div class="col-md-7">
                                     <textarea name="" id="" cols="40" rows="8"></textarea>
                                 </div>
                             </div>
@@ -358,14 +358,9 @@
                     "_token": "{{ csrf_token() }}",
                     "keys": items
                 }, function(data) {
-                    if (data.status == 0) {
-                        layer.msg(data.msg, { icon: 6});
-                        location.href = location.href;
-                    } else {
-                        layer.msg(data.msg, { icon: 5});
-                    }
+                    layer.msg("短信发送中...",{icon:6,time:3000});
                     var t=setTimeout("window.location.reload()",3000);
-
+                    return  false;
                 });
             });
 

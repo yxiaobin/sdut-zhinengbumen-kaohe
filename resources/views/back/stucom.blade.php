@@ -22,7 +22,7 @@
                 <a href="{{url("/stucom")}}">
                     <input type="button" class="btn btn-primary" value="学生代表统计">
                 </a>
-                <a download="评价表" id="excelOut1" href="#" class="btn btn-primary">文件导出</a>
+                <a download="评价表" id="excelOut1" href="#" class="btn btn-warning">文件导出</a>
                 {{--<a download="评价表" id="excelOut2" href="#" class="btn btn-primary">导出学院</a>--}}
             </div>
             <div class="card">

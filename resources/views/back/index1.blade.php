@@ -22,8 +22,8 @@
                 <a href="{{url("/stucom")}}">
                     <input type="button" class="btn btn-primary" value="学生代表统计">
                 </a>
-                <a download="评价表" id="excelOut1" href="#" class="btn btn-primary">导出职能部门</a>
-                <a download="评价表" id="excelOut2" href="#" class="btn btn-primary">导出学院</a>
+                <a download="评价表" id="excelOut1" href="#" class="btn btn-warning">导出职能部门</a>
+                <a download="评价表" id="excelOut2" href="#" class="btn btn-warning">导出学院</a>
             </div>
             <div class="card">
                 <div class="card-header">学校职能部门评价</div>

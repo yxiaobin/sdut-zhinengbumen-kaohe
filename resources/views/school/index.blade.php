@@ -18,7 +18,7 @@
                             <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">学院列表</a>
                         </li>
                         <li role="tab2" style="width:160px" class="@if($tab==2){{"active"}}@endif">
-                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加新的学院</a>
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加新学院</a>
                         </li>
                     </ul>
                 </div>
