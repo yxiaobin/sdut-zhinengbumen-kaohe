@@ -113,7 +113,7 @@
                         <li class="navbar-brand">
                             <img src="" width="200px">
                         </li>
-                        <li class="navbar-title">后台管理系统</li>
+                        <li class="navbar-title">山东理工大学单位年度工作考核评价系统</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown profile">

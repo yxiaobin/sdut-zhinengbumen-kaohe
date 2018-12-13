@@ -73,7 +73,10 @@
                                 @endphp
                                 </th>
                                 <th>{{$p->name}}</th>
-                                <th>xxx</th>
+                                <th>
+                                    {{$p->total}}
+
+                                </th>
                                 <th>
                                     @php
                                     $members = \App\Member::where('school_id','=',$p->id)->get();
@@ -90,10 +93,10 @@
                                 </th>
                                 <th>
                                     @php
-                                        if($num1 == 0){
+                                        if($p->total == 0){
                                             $num = 0;
                                         }else{
-                                            $num = sprintf("%.4f",($num1-$num2)/$num1);
+                                            $num = sprintf("%.4f",($num1-$num2)/$p->total);
                                         }
                                         $num = sprintf("%.4f",$num);
                                         $num = $num *100;

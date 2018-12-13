@@ -17,9 +17,11 @@ class SchoolController extends Controller
         $tab = 2;
         $this->validate($request,[
             'name'=>'required',
+            'total'=>'required',
         ]);
         $member = new School();
         $member->name = $request->input('name'); //用户名
+        $member->total = $request->input('total'); //用户名
         $member->term_id = 1;
         $member->save();
         $tab=1;
@@ -28,5 +30,16 @@ class SchoolController extends Controller
     public function delete(School  $id){
         $id->delete();
         return back();
+    }
+    public function show($id){
+        $school = School::find($id);
+        return  view("school.info",compact('school'));
+    }
+    public function update(Request $request , $id){
+        $school = School::find($id);
+        $school->name = $request->input('name'); //用户名
+        $school->total = $request->input('total'); //用户名
+        $school->save();
+        return redirect("schoolmanager");
     }
 }

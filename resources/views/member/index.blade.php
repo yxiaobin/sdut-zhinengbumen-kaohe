@@ -13,10 +13,10 @@
                     <input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="导入学生代表">
                 </a>
                 <a href="#">
-                    <input  id="delALL" type="button" class="btn btn-primary" value="删除学生代表">
+                    <input  id="delALL" type="button" class="btn btn-danger" value="删除学生代表">
                 </a>
                 <a href="#">
-                    <input id="sendMsg" type="button" class="btn btn-primary" value="发送短信">
+                    <input id="sendMsg" type="button" class="btn btn-warning" value="发送短信">
                 </a>
             </div>
             <div class="card">
@@ -354,13 +354,14 @@
             layer.confirm('您确定要发送短信吗？', {
                 btn: ['确定', '取消'],
             }, function() {
-                $.post("{{ url('/sendmsg') }}", {
-                    "_token": "{{ csrf_token() }}",
-                    "keys": items
-                }, function(data) {
-                    layer.msg("短信发送中...",{icon:6,time:3000});
-                    var t=setTimeout("window.location.reload()",3000);
-                    return  false;
+                layer.msg("短信正在发送中...",{icon:6,time: 1000},function () {
+                    $.post("{{ url('/sendmsg') }}", {
+                        "_token": "{{ csrf_token() }}",
+                        "keys": items
+                    }, function(data) {
+                        layer.msg(data.msg , {icon:6,time:2000});
+                        window.location.reload();
+                    });
                 });
             });
 

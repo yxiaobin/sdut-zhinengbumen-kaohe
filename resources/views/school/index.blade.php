@@ -29,6 +29,7 @@
                             <tr>
                                 <th>学院ID</th>
                                 <th>学院名称</th>
+                                <th>学院总人数</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -37,9 +38,13 @@
                                 <tr>
                                     <td>{{$member->id}}</td>
                                     <td>{{$member->name}}</td>
+                                    <td>{{$member->total}}</td>
                                     <td>
                                         <a href="{{url("deleteschool/$member->id")}}">
                                             <input  type="button" class="btn btn-xs btn-warning" onclick="return confirm('确认要删除吗')" value="删除">
+                                        </a>
+                                        <a href="{{url("schoolmanager/$member->id")}}">
+                                            <input  type="button" class="btn btn-xs btn-primary" value="修改">
                                         </a>
                                     </td>
                                 </tr>
@@ -71,6 +76,12 @@
                                                         <label class="col-md-3 control-label">学院名称</label>
                                                         <div class="col-md-9">
                                                             <input type="text" class="form-control" placeholder="例如:计算机科学与技术学院" name="name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">学院总人数</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" placeholder="例如:2333" name="total">
                                                         </div>
                                                     </div>
 
