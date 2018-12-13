@@ -173,9 +173,11 @@
                         @endforeach
 
                     </table>
+                    @if($flag  == 1)
                     <div style="padding-left: 45%; !important;">
-                        {{--{{ $members->links() }}--}}
+                        {{ $members->links() }}
                     </div>
+                        @endif
                 </div>
             </div>
         </div>

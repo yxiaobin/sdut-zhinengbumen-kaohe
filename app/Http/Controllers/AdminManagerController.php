@@ -28,9 +28,10 @@ class AdminManagerController extends Controller
     }
 //    评价明细表
     public  function  member(){
-        $members = Member::paginate(14);
+        $members = Member::paginate(200);
         $z1 = $z2 = $z3 =$z4 = -1;
-        return view("back.member",compact('members','z1','z2','z3','z4'));
+        $flag  = 1;
+        return view("back.member",compact('members','z1','z2','z3','z4','flag'));
     }
     public  function  memberstore(Request $request){
         $z1 = $request->input("stuid");
@@ -59,7 +60,8 @@ class AdminManagerController extends Controller
         if($z4 != -1&& count($members)>0){
             $members = $members->where('finish','=',$z4);
         }
-        return view("back.member",compact('members','z1','z2','z3','z4'));
+        $flag  =  0 ;
+        return view("back.member",compact('members','z1','z2','z3','z4','flag'));
     }
 
 //    各自的学院学生代表评价

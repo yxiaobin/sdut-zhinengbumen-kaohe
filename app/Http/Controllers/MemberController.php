@@ -15,9 +15,10 @@ class MemberController extends Controller
 {
     //
     public function  index(){
-        $members = Member::all();
+        $members = Member::paginate(200);
         $z1 = $z2 = $z3 =$z4 = -1;
-        return view("member.index",compact('members','z1','z2','z3','z4'));
+        $flag  = 1;
+        return view("member.index",compact('members','z1','z2','z3','z4','flag'));
     }
     public  function  store(Request $request){
         $z1 = $request->input("stuid");
@@ -45,7 +46,8 @@ class MemberController extends Controller
         if($z4 != -1&& count($members)>0){
             $members = $members->where('finish','=',$z4);
         }
-        return view("member.index",compact('members','z1','z2','z3','z4'));
+        $flag  =  0 ;
+        return view("member.index",compact('members','z1','z2','z3','z4','flag'));
     }
 
 

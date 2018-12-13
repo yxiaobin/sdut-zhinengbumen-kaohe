@@ -16,7 +16,7 @@
                     <input  id="delALL" type="button" class="btn btn-danger" value="删除学生代表">
                 </a>
                 <a href="#">
-                    <input id="sendMsg" type="button" class="btn btn-warning" value="发送短信">
+                    <input id="sendMsg" type="button" class="btn btn-warning" value="为已选学生发送短信">
                 </a>
             </div>
             <div class="card">
@@ -160,9 +160,11 @@
                         @endforeach
 
                     </table>
+                    @if($flag  == 1)
                     <div style="padding-left: 45%; !important;">
-                        {{--{{ $members->links() }}--}}
+                        {{ $members->links() }}
                     </div>
+                        @endif
                 </div>
             </div>
         </div>
