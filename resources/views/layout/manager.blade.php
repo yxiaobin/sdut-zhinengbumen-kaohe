@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>后台管理系统</title>
+    <title>山东理工大学单位年度工作考核评价 - 萌芽科技提供技术支持</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    {{--<meta title="山东理工大学单位年度工作考核评价 - 萌芽科技提供技术支持">--}}
     <link rel="stylesheet" type="text/css" href="{{asset("/assets/css/vendor.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("/assets/css/flat-admin.css")}}">
     <!-- Theme -->
@@ -110,9 +110,6 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="navbar-brand">
-                            <img src="" width="200px">
-                        </li>
                         <li class="navbar-title">山东理工大学单位年度工作考核评价系统</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -146,5 +143,15 @@
 <script type="text/javascript" src="{{asset("/layui-v2.4.5/layui/layui.all.js")}}"></script>
 
 @yield('js')
+<footer class="app-footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="footer-copyright">
+                <a href="https://www.mengyakeji.com/"  target="_blank">技术支持：萌芽科技</a>
+
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

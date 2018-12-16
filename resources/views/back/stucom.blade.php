@@ -105,6 +105,54 @@
                                 </th>
                             </tr>
                         @endforeach
+                       <th>&nbsp;</th>
+                        <th>合计</th>
+                        <th>
+                            @php
+                                $sum = 0;
+                                foreach($schools as $p)
+                                $sum = $sum + $p->total;
+
+                            @endphp
+                            {{$sum}}
+                        </th>
+                        <th>
+                            @php
+                                $sum1 = 0;
+                                foreach($schools as $p)
+                                {
+                                    $members = \App\Member::where('school_id','=',$p->id)->get();
+                                    $num1 = count($members);
+                                    $sum1 +=$num1;
+                                }
+                            @endphp
+                            {{$sum1}}
+                        </th>
+                        <th>
+                            @php
+                                $sum2 = 0;
+                                foreach($schools as $p)
+                                {
+                                    $members = \App\Member::where('school_id','=',$p->id)->where("finish",'=','0')->get();
+                                    $num1 = count($members);
+                                    $sum2 +=$num1;
+                                }
+                            @endphp
+                            {{$sum2}}
+                        </th>
+                        <th>
+                            @php
+                                if($sum == 0){
+                                    $num = 0;
+                                }else{
+                                    $num = sprintf("%.4f",($sum1-$sum2)/$sum);
+                                }
+                                $num = sprintf("%.4f",$num);
+                                $num = $num *100;
+                            @endphp
+                            {{$num}}%
+
+                        </th>
                     </table>
                 </div>
 

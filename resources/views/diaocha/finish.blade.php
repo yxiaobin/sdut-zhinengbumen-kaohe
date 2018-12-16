@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>调查问卷</title>
+    <title>山东理工大学单位年度工作考核评价 - 萌芽科技提供技术支持</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
@@ -31,8 +31,8 @@
 
 <!-- ad -->
 <div class="container-fluid">
-    <a href="https://www.mengyakeji.com">
-        <p class="AD">萌芽创想 强力驱动</p>
+    <a href="https://www.mengyakeji.com/budcreate">
+        <p class="AD">技术支持 : 萌芽科技</p>
     </a>
 </div>
 

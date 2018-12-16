@@ -362,7 +362,8 @@
                         "keys": items
                     }, function(data) {
                         layer.msg(data.msg , {icon:6,time:2000});
-                        window.location.reload();
+                        var s = setTimeout('window.location.reload()',2500);
+                        // window.location.reload();
                     });
                 });
             });
