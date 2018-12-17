@@ -18,6 +18,8 @@
                 <a href="#">
                     <input id="sendMsg" type="button" class="btn btn-warning" value="为已选学生发送短信">
                 </a>
+
+
             </div>
             <div class="card">
                 <div class="card-header">学生代表列表</div>
@@ -61,11 +63,15 @@
                         <th>
                             <input type="submit" class="btn btn-primary" value="查询">
                         </th>
+                        <div style="padding-left: 0%; !important; padding-top: 2%;">
+                            @if($flag  == 1)
+                            {{ $members->links() }}
+                            @endif</th>
+                        </div>
                         </thead>
                     </form>
                 </div>
-
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 0%;">
                     <table class=" table" id="tbody">
                         <thead>
                         <th id="xyz">
@@ -160,11 +166,7 @@
                         @endforeach
 
                     </table>
-                    @if($flag  == 1)
-                    <div style="padding-left: 45%; !important;">
-                        {{ $members->links() }}
-                    </div>
-                        @endif
+
                 </div>
             </div>
         </div>

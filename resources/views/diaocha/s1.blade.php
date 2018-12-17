@@ -28,7 +28,7 @@
         {{csrf_field()}}
         <input type="hidden" name="member" value="{{$member->id}}">
         <div class="jumbotron text-cente">
-            <h2>首先</h2>
+            <h2>第一部分</h2>
             @php
                 $num = count($bumens);
             @endphp
@@ -175,7 +175,7 @@
         <br>
         @endforeach
         <div class="jumbotron text-cente">
-        <h2>最后</h2>
+        <h2>第二部分</h2>
         <p>请对您自己学院的年度工作考核进行评价</p>
          </div>
         <!-- 本学院评价 开始 -->

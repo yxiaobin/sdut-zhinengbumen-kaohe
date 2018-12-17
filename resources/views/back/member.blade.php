@@ -78,11 +78,18 @@
                         <th>
                             <input type="submit" class="btn btn-primary" value="查询">
                         </th>
+                        <th>
+                            <div style="padding-left: 0%; !important; padding-top: 2%;">
+                            @if($flag  == 1)
+                                {{ $members->links() }}
+                            @endif</th>
+                            </div>
+                        </th>
                         </thead>
                     </form>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 0%;">
                     <table class=" table" id="tbody">
                         <thead>
                         <th id="xyz" >
@@ -173,11 +180,7 @@
                         @endforeach
 
                     </table>
-                    @if($flag  == 1)
-                    <div style="padding-left: 45%; !important;">
-                        {{ $members->links() }}
-                    </div>
-                        @endif
+
                 </div>
             </div>
         </div>

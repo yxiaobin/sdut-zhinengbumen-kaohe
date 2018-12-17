@@ -68,7 +68,6 @@
             }, function(data) {
                 if (data.status == 1) {
                     layer.msg(data.msg, { icon: 6});
-
                     var turnForm = document.createElement("form");
                     //一定要加入到body中！！
                     document.body.appendChild(turnForm);
@@ -95,17 +94,6 @@
         });
 
     });
-    // function gotof() {
-    //     var paramsString = window.location.search;
-    //     console.log(paramsString);
-    //     paramsString  = paramsString.substring(1); //"?id=zzzzzzzzzz"
-    //     console.log(paramsString);
-    //     var decodeData = window.decodeURIComponent(window.atob(paramsString))//解码。
-    //     decodeData = decodeData.substring(3);
-    //     console.log(decodeData);
-    // }
-
-
 </script>
 </body>
 
