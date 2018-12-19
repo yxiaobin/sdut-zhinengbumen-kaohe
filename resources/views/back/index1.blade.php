@@ -96,7 +96,11 @@
                                     +(70*$key->p1C)+(65*$key->p2C)+(60*$key->p3C)
                                     +(50*$key->p2D);
                                     $ans = count($members);
-                                    $num = sprintf("%.2f",$sum/$ans);
+                                     if($ans !=0){
+                                            $num = sprintf("%.2f",$sum/$ans);
+                                     }else{
+                                            $num = sprintf("%.2f",0);
+                                     }
                                     @endphp
                                     {{$num}}
 
