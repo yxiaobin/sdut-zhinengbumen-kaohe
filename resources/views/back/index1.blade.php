@@ -9,10 +9,10 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card-header">
-                <a href="{{url("/adminindex")}}">
+                {{--<a href="{{url("/adminindex")}}">--}}
                     {{--<input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="综合评价">--}}
-                    <input   type="button" class="btn btn-primary" value="综合评价">
-                </a>
+                    {{--<input   type="button" class="btn btn-primary" value="综合评价">--}}
+                {{--</a>--}}
                 <a href="{{url("/pjall")}}">
                     <input   type="button" class="btn btn-primary" value="评价汇总表">
                 </a>
@@ -53,28 +53,11 @@
                     <table  class="table" id="tbody1" border="1" >
                         <tbody id="sbody" >
                         <tr style="color: white; font-size: 14px; background-color: #3333CC">
-                            <th>评价项目</th>
-                            <th>工作理念</th>
-                            <th>工作作风</th>
-                            <th>工作规范</th>
-                            <th>工作效率</th>
-                            <th rowspan="2"  style="vertical-align: middle">综合评价</th>
-                        </tr>
-                        <tr  style="color: white; font-size: 14px;background-color: #3333CC">
-                            <th>评价内容</th>
-                            <th>工作设计体现“以学生为本”</th>
-                            <th>服务热情&nbsp;解决问题</th>
-                            <th>依规办事&nbsp;公平公正</th>
-                            <th>流程简洁&nbsp;办理高效</th>
-                            {{--<th>综合评价</th>--}}
-                        </tr>
-                        <tr style="color: white; font-size: 14px;background-color:  #3333CC">
                             <th>单位名称</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
+                            <th>评价人数</th>
+                            <th colspan="2">评价等次</th>
+                            <th>得分</th>
+
 
                         </tr>
                         @foreach($bumens as $p)
@@ -89,34 +72,34 @@
                             <tr style="color: black; font-size: 14px;">
                                 <th>{{$p->name}}</th>
                                 <th>
-                                    A({{$key->p1A}});
-                                    B({{$key->p1B}});
-                                    C({{$key->p1C}});
-                                    D({{$key->p1D}})
+                                    @php
+                                        $members = \App\Member::where("term_id",'=',$term->id)->where("finish",'=','1')->get();
+                                    @endphp
+                                    {{count($members)}}
                                 </th>
-                                <th>
+                                <th colspan="2">
+                                    A+({{$key->p1A}});
                                     A({{$key->p2A}});
+                                    A-({{$key->p3A}});
+                                    B+({{$key->p1B}});
                                     B({{$key->p2B}});
+                                    B-({{$key->p3B}});
+                                    C+({{$key->p1C}});
                                     C({{$key->p2C}});
+                                    C-({{$key->p3C}});
                                     D({{$key->p2D}})
                                 </th>
                                 <th>
-                                    A({{$key->p3A}});
-                                    B({{$key->p3B}});
-                                    C({{$key->p3C}});
-                                    D({{$key->p3D}})
-                                </th>
-                                <th>
-                                    A({{$key->p4A}});
-                                    B({{$key->p4B}});
-                                    C({{$key->p4C}});
-                                    D({{$key->p4D}})
-                                </th>
-                                <th>
-                                    A({{$key->p5A}});
-                                    B({{$key->p5B}});
-                                    C({{$key->p5C}});
-                                    D({{$key->p5D}})
+                                    @php
+                                    $sum = (100*$key->p1A)+(95*$key->p2A)+(90*$key->p3A)
+                                    +(85*$key->p1B)+(80*$key->p2B)+(75*$key->p3B)
+                                    +(70*$key->p1C)+(65*$key->p2C)+(60*$key->p3C)
+                                    +(50*$key->p2D);
+                                    $ans = count($members);
+                                    $num = sprintf("%.2f",$sum/$ans);
+                                    @endphp
+                                    {{$num}}
+
                                 </th>
                             </tr>
                         @endforeach
@@ -130,29 +113,13 @@
                     <table  class="table" id="tbody2" border="1" >
                         <tbody id="sbody" >
                         <tr style="color: white; font-size: 14px; background-color: #3333CC">
-                            <th>评价项目</th>
-                            <th>工作理念</th>
-                            <th>工作作风</th>
-                            <th>工作规范</th>
-                            <th>工作效率</th>
-                            <th rowspan="2"  style="vertical-align: middle">综合评价</th>
-                        </tr>
-                        <tr  style="color: white; font-size: 14px;background-color: #3333CC">
-                            <th >评价内容</th>
-                            <th >重视育人氛围建设，关心学生发展，工作设计体现“以学生为本”。</th>
-                            <th >经常深入基层，听取学生意见建议，及时解决问题</th>
-                            <th >重视学院发展和教风学风建设，为学生发展创造良好条件。</th>
-                            <th >制度完善，涉及学生利益问题公平公开公正</th>
-                            {{--<th>综合评价</th>--}}
-                        </tr>
-                        <tr style="color: white; font-size: 14px;background-color:  #3333CC">
                             <th>单位名称</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
-                            <th>评价等次</th>
+                            <th>评价人数</th>
+                            <th colspan="2">评价等次</th>
+                            <th>得分</th>
+
                         </tr>
+
                         @foreach($schools as $p)
                             @php
                                 $key = \App\SchoolTerm::where("school_id",'=',$p->id)->where('term_id','=',$term->id)->get();
@@ -171,35 +138,41 @@
                             <tr style="color: black; font-size: 14px;">
                                 <th>{{$p->name}}</th>
                                 <th>
-                                    A({{$key->p1A}});
-                                    B({{$key->p1B}});
-                                    C({{$key->p1C}});
-                                    D({{$key->p1D}})
+                                    @php
+                                        $members = \App\Member::where("term_id",'=',$term->id)->where("finish",'=','1')->where("school_id",'=',$p->id)->get();
+                                    @endphp
+                                    {{count($members)}}
                                 </th>
-                                <th>
+                                <th colspan="2">
+                                    A+({{$key->p1A}});
                                     A({{$key->p2A}});
+                                    A-({{$key->p3A}});
+                                    B+({{$key->p1B}});
                                     B({{$key->p2B}});
+                                    B-({{$key->p3B}});
+                                    C+({{$key->p1C}});
                                     C({{$key->p2C}});
+                                    C-({{$key->p3C}});
                                     D({{$key->p2D}})
                                 </th>
                                 <th>
-                                    A({{$key->p3A}});
-                                    B({{$key->p3B}});
-                                    C({{$key->p3C}});
-                                    D({{$key->p3D}})
+                                    @php
+                                        $sum = (100*$key->p1A)+(95*$key->p2A)+(90*$key->p3A)
+                                        +(85*$key->p1B)+(80*$key->p2B)+(75*$key->p3B)
+                                        +(70*$key->p1C)+(65*$key->p2C)+(60*$key->p3C)
+                                        +(50*$key->p2D);
+                                        $ans = count($members);
+                                        if($ans !=0){
+                                            $num = sprintf("%.2f",$sum/$ans);
+                                        }else{
+                                            $num = sprintf("%.2f",0);
+                                        }
+
+                                    @endphp
+                                    {{$num}}
+
                                 </th>
-                                <th>
-                                    A({{$key->p4A}});
-                                    B({{$key->p4B}});
-                                    C({{$key->p4C}});
-                                    D({{$key->p4D}})
-                                </th>
-                                <th>
-                                    A({{$key->p5A}});
-                                    B({{$key->p5B}});
-                                    C({{$key->p5C}});
-                                    D({{$key->p5D}})
-                                </th>
+                            </tr>
                             </tr>
                         @endforeach
                     </table>

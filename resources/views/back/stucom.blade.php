@@ -9,10 +9,10 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card-header">
-                <a href="{{url("adminindex")}}">
+                {{--<a href="{{url("adminindex")}}">--}}
                     {{--<input type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" value="综合评价">--}}
-                    <input   type="button" class="btn btn-primary" value="综合评价">
-                </a>
+                    {{--<input   type="button" class="btn btn-primary" value="综合评价">--}}
+                {{--</a>--}}
                 <a href="{{url("pjall")}}">
                     <input   type="button" class="btn btn-primary" value="评价汇总表">
                 </a>

@@ -65,7 +65,7 @@ class FrontController extends Controller
     }
     public function store(Request $request)
     {
-//        dd($request);
+      //  dd($request);
         $id = $request->input('member');
         $member = Member::find($id);
         $term = Term::find($member->term_id);
@@ -83,74 +83,34 @@ class FrontController extends Controller
                 } else {
                     $p = $p->first();
                 }
-                for ($j = 1; $j <= 5; $j++) {
-                    $str = $i + 1;
-                    $str = $str . $j;
-//                echo $str . "        ";
-                    $key = $request->input($str);
-//                echo $key  . "<br>";
-                    if ($j == 1) {
-                        if ($key == 'A') {
-                            $p->p1A = $p->p1A + 1;
-                        } elseif ($key == 'B') {
-                            $p->p1B = $p->p1B + 1;
-                        } elseif ($key == 'C') {
-                            $p->p1C = $p->p1C + 1;
-                        } elseif ($key == 'D') {
-                            $p->p1D = $p->p1D + 1;
-                        }
+                $key = $request->input($str);
+                    if ($key == 'A+') {
+                        $p->p1A = $p->p1A + 1;
+                    } elseif ($key == 'B+') {
+                        $p->p1B = $p->p1B + 1;
+                    } elseif ($key == 'C+') {
+                        $p->p1C = $p->p1C + 1;
+                    } else if ($key == 'A') {
+                        $p->p2A = $p->p2A + 1;
+                    } elseif ($key == 'B') {
+                        $p->p2B = $p->p2B + 1;
+                    } elseif ($key == 'C') {
+                        $p->p2C = $p->p2C + 1;
+                    } elseif ($key == 'D') {
+                        $p->p2D = $p->p2D + 1;
+                    } else if ($key == 'A-') {
+                        $p->p3A = $p->p3A + 1;
+                    } elseif ($key == 'B-') {
+                        $p->p3B = $p->p3B + 1;
+                    } elseif ($key == 'C-') {
+                        $p->p3C = $p->p3C + 1;
                     }
-                    if ($j == 2) {
-                        if ($key == 'A') {
-                            $p->p2A = $p->p2A + 1;
-                        } elseif ($key == 'B') {
-                            $p->p2B = $p->p2B + 1;
-                        } elseif ($key == 'C') {
-                            $p->p2C = $p->p2C + 1;
-                        } elseif ($key == 'D') {
-                            $p->p2D = $p->p2D + 1;
-                        }
-                    }
-                    if ($j == 3) {
-                        if ($key == 'A') {
-                            $p->p3A = $p->p3A + 1;
-                        } elseif ($key == 'B') {
-                            $p->p3B = $p->p3B + 1;
-                        } elseif ($key == 'C') {
-                            $p->p3C = $p->p3C + 1;
-                        } elseif ($key == 'D') {
-                            $p->p3D = $p->p3D + 1;
-                        }
-                    }
-                    if ($j == 4) {
-                        if ($key == 'A') {
-                            $p->p4A = $p->p4A + 1;
-                        } elseif ($key == 'B') {
-                            $p->p4B = $p->p4B + 1;
-                        } else if ($key == 'C') {
-                            $p->p4C = $p->p4C + 1;
-                        } elseif ($key == 'D') {
-                            $p->p4D = $p->p4D + 1;
-                        }
-                    }
-                    if ($j == 5) {
-                        if ($key == 'A') {
-                            $p->p5A = $p->p5A + 1;
-                        } elseif ($key == 'B') {
-                            $p->p5B = $p->p5B + 1;
-                        } elseif ($key == 'C') {
-                            $p->p5C = $p->p5C + 1;
-                        } elseif ($key == 'D') {
-                            $p->p5D = $p->p5D + 1;
-                        }
-                    }
-                }
-                $p->updated_at = Carbon::now();
-                $p->save();
+                    $p->updated_at = Carbon::now();
+                    $p->save();
             }
             //      更新学院记录
             $school = School::find($member->school_id);
-            $str = 112;
+            $str = 110;
             $p = SchoolTerm::where("school_id", '=', $member->school_id)->where("term_id", '=', $member->term_id)->get();
             if (count($p) == 0) {
                 $p = new SchoolTerm();
@@ -159,65 +119,27 @@ class FrontController extends Controller
             } else {
                 $p = $p->first();
             }
-            for ($j = 1; $j <= 5; $j++) {
-                $str = 112;
-                $str = $str . $j;
-                $key = $request->input($str);
-                if ($j == 1) {
-                    if ($key == 'A') {
-                        $p->p1A = $p->p1A + 1;
-                    } elseif ($key == 'B') {
-                        $p->p1B = $p->p1B + 1;
-                    } elseif ($key == 'C') {
-                        $p->p1C = $p->p1C + 1;
-                    } elseif ($key == 'D') {
-                        $p->p1D = $p->p1D + 1;
-                    }
-                }
-                if ($j == 2) {
-                    if ($key == 'A') {
-                        $p->p2A = $p->p2A + 1;
-                    } elseif ($key == 'B') {
-                        $p->p2B = $p->p2B + 1;
-                    } elseif ($key == 'C') {
-                        $p->p2C = $p->p2C + 1;
-                    } elseif ($key == 'D') {
-                        $p->p2D = $p->p2D + 1;
-                    }
-                }
-                if ($j == 3) {
-                    if ($key == 'A') {
-                        $p->p3A = $p->p3A + 1;
-                    } elseif ($key == 'B') {
-                        $p->p3B = $p->p3B + 1;
-                    } elseif ($key == 'C') {
-                        $p->p3C = $p->p3C + 1;
-                    } elseif ($key == 'D') {
-                        $p->p3D = $p->p3D + 1;
-                    }
-                }
-                if ($j == 4) {
-                    if ($key == 'A') {
-                        $p->p4A = $p->p4A + 1;
-                    } elseif ($key == 'B') {
-                        $p->p4B = $p->p4B + 1;
-                    } elseif ($key == 'C') {
-                        $p->p4C = $p->p4C + 1;
-                    } elseif ($key == 'D') {
-                        $p->p4D = $p->p4D + 1;
-                    }
-                }
-                if ($j == 5) {
-                    if ($key == 'A') {
-                        $p->p5A = $p->p5A + 1;
-                    } elseif ($key == 'B') {
-                        $p->p5B = $p->p5B + 1;
-                    } elseif ($key == 'C') {
-                        $p->p5C = $p->p5C + 1;
-                    } elseif ($key == 'D') {
-                        $p->p5D = $p->p5D + 1;
-                    }
-                }
+            $key = $request->input($str);
+            if ($key == 'A+') {
+                $p->p1A = $p->p1A + 1;
+            } elseif ($key == 'B+') {
+                $p->p1B = $p->p1B + 1;
+            } elseif ($key == 'C+') {
+                $p->p1C = $p->p1C + 1;
+            } else if ($key == 'A') {
+                $p->p2A = $p->p2A + 1;
+            } elseif ($key == 'B') {
+                $p->p2B = $p->p2B + 1;
+            } elseif ($key == 'C') {
+                $p->p2C = $p->p2C + 1;
+            } elseif ($key == 'D') {
+                $p->p2D = $p->p2D + 1;
+            } else if ($key == 'A-') {
+                $p->p3A = $p->p3A + 1;
+            } elseif ($key == 'B-') {
+                $p->p3B = $p->p3B + 1;
+            } elseif ($key == 'C-') {
+                $p->p3C = $p->p3C + 1;
             }
             $p->updated_at = Carbon::now();
             $p->save();
@@ -231,21 +153,13 @@ class FrontController extends Controller
                 $p->member_id = $member->id;
                 $p->term_id = $member->term_id;
                 $p->bumen_id = $bumens[$i]->id;
+
+                $key = $request->input($str);
+
                 for ($j = 1; $j <= 5; $j++) {
                     $str = $i + 1;
                     $str = $str . $j;
-                    $key = $request->input($str);
-                    if ($j == 1) {
-                        $p->p1 = $key;
-                    } else if ($j == 2) {
-                        $p->p2 = $key;
-                    } else if ($j == 3) {
-                        $p->p3 = $key;
-                    } else if ($j == 4) {
-                        $p->p4 = $key;
-                    } else if ($j == 5) {
-                        $p->p5 = $key;
-                    }
+                    $p->p1 = $key;
                 }
                 $p->updated_at = Carbon::now();
                 $p->save();
@@ -256,22 +170,10 @@ class FrontController extends Controller
             $p->term_id = $member->term_id;
             $p->school_id = $school->id;
             $p->member_id = $member->id;
-            for ($j = 1; $j <= 5; $j++) {
-                $str = 112;
-                $str = $str . $j;
-                $key = $request->input($str);
-                if ($j == 1) {
-                    $p->p1 = $key;
-                } else if ($j == 2) {
-                    $p->p2 = $key;
-                } else if ($j == 3) {
-                    $p->p3 = $key;
-                } else if ($j == 4) {
-                    $p->p4 = $key;
-                } else if ($j == 5) {
-                    $p->p5 = $key;
-                }
-            }
+
+            $str = 110;
+            $key = $request->input($str);
+            $p->p1 = $key;
             $p->updated_at = Carbon::now();
             $p->save();
 //            将其置位1

@@ -18,7 +18,7 @@ class AdminManagerController extends Controller
         if(count($term) != 0){
             $term =$term->first();
         }
-        return  view("back.index",compact('bumens','schools','term'));
+        return  view("back.index1",compact('bumens','schools','term'));
     }
     public  function  store(Request $request){
         $bumens = Bumen::all();

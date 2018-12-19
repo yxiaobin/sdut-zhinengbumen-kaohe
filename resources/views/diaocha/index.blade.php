@@ -37,7 +37,7 @@
         <div class="card-header">注意事项</div>
         <div class="card-body">
             <ul>
-                <li>评议等次栏A、B、C、D分别代表“好”、“较好”、“一般”、“差”,每一栏目ABCD四个选项只能选择一项</li>
+                <li>评议等次共分为10个等级，分别为A+ A A- B+ B B- C+ C C- D,每一栏目十个选项只能选择一项</li>
                 <li>为更好地、准确地评价单位的履职尽责情况，请认真对每一栏目进行评价</li>
             </ul>
         </div>
