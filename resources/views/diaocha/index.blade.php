@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>山东理工大学单位年度工作考核评价 - 萌芽科技提供技术支持</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{asset("/layui-v2.4.5/layui/css/layui.css")}}">
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
 
@@ -21,7 +22,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{asset("/diaocha/css/main.css")}}" />
     <script src="{{asset("/diaocha/js/main.js")}}"></script>
     <script type="text/javascript" src="{{asset("/layui-v2.4.5/layui/layui.all.js")}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset("/layui-v2.4.5/layui/css/layui.css")}}">
 </head>
 
 <body>
@@ -37,8 +37,7 @@
         <div class="card-header">注意事项</div>
         <div class="card-body">
             <ul>
-                <li>评议等次共分为10个等级，分别为A+ A A- B+ B B- C+ C C- D,每一栏目十个选项只能选择一项</li>
-                <li>为更好地、准确地评价单位的履职尽责情况，请认真对每一栏目进行评价</li>
+                <li>为更好地、准确地评价部门单位的履职尽责情况，请认真对每一项栏目进行评价，在选定的综合评价等级下进行点选</li>
             </ul>
         </div>
     </div>
@@ -61,7 +60,7 @@
 
         var layer = layui.layer;
         layer.confirm('你已经做好准备答题了吗？', {
-            btn: ['确定', '取消'],
+            btn: ["<span style='color:white'>"+ "确定"+"</span> ", '取消'],
         }, function() {
             $.post("{{ url("content/") }}"+'/'+decodeData , {
                 "_token": "{{ csrf_token() }}",

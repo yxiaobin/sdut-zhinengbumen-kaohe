@@ -65,6 +65,7 @@
                                 $key = \App\BumenTerm::where("bumen_id",'=',$p->id)->where('term_id','=',$term->id)->get();
                                 if(count($key) <=0){
                                     $key = new  \App\BumenTerm();
+
                                 }else{
                                     $key = $key->first();
                                 }

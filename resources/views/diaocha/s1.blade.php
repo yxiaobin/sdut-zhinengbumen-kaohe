@@ -18,8 +18,10 @@
 
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset("/diaocha/css/main1.css")}}" />
     <script src="{{asset("/diaocha/js/main1.js")}}"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset("/diaocha/css/main1.css")}}" />
+
+
 </head>
 
 <body>
@@ -32,7 +34,9 @@
             @php
                 $num = count($bumens);
             @endphp
-            <p>请对个职能单位年度工作考核进行评价</p>
+            <p>1.请对山东理工大学部分部门单位年度工作进行考核评价</p>
+            <p>   2.请根据“工作体现以学生为本”、“服务热情 解决问题”、“依规办事 公平公正”和“流程简洁 办理高效”四个方面对各职能部门打分</p>
+             <p>   3.评价等级A、B、C、D分别代表“好”、“较好”、“一般”、“差”；其中A+、A、A-、B+、B、B-、C+、C、C-、D分别对应100分、95分、90分、85分、80分、75分、70分、65分、60分、50分。</p>
         </div>
         @php
             $str = 0;
@@ -47,7 +51,7 @@
             <li class="list-group-item">
                 <p>请对该部门年度工作考核做出综合评价</p>
                 <div class="chooseRow d-flex flex-column">
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights" >
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input col-sm-4" id="{{$str}}A" name="{{$str}}" value="A+">
                             <label class="custom-control-label" for="{{$str}}A">A+</label>
@@ -61,7 +65,7 @@
                             <label class="custom-control-label" for="{{$str}}C">A-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}D" name="{{$str}}" value="B+">
                             <label class="custom-control-label" for="{{$str}}D">B+</label>
@@ -75,7 +79,7 @@
                             <label class="custom-control-label" for="{{$str}}F">B-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}G" name="{{$str}}" value="C+">
                             <label class="custom-control-label" for="{{$str}}G">C+</label>
@@ -89,7 +93,7 @@
                             <label class="custom-control-label" for="{{$str}}I">C-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}J" name="{{$str}}" value="D">
                             <label class="custom-control-label" for="{{$str}}J">D</label>
@@ -103,7 +107,9 @@
         @endforeach
         <div class="jumbotron text-cente">
         <h2>第二部分</h2>
-        <p>请对您自己学院的年度工作考核进行评价</p>
+            <p>1.请对山东理工大学学院领导班子进行考核评价；</p>
+            <p> 2.请根据“关心学生发展，工作设计体现以学生为本”、“经常深入基层，听取学生意见建议，及时解决问题”、“重视学院发展和教风学风建设，为学生发展创造良好条件”和“制度完善，涉及学生利益问题公平公开公正”四个方面对各职能部门打分；</p>
+           <p> 3.评价等级A+、A、A-、B+、B、B-、C+、C、C-、D分别对应100分、95分、90分、85分、80分、75分、70分、65分、60分、50分；</p>
          </div>
         <!-- 本学院评价 开始 -->
         <ul class="list-group">
@@ -114,7 +120,7 @@
             <li class="list-group-item">
                 <p>请对该部门年度工作考核做出综合评价</p>
                 <div class="chooseRow d-flex flex-column">
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input col-sm-4" id="{{$str}}A" name="{{$str}}" value="A+">
                             <label class="custom-control-label" for="{{$str}}A">A+</label>
@@ -128,7 +134,7 @@
                             <label class="custom-control-label" for="{{$str}}C">A-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}D" name="{{$str}}" value="B+">
                             <label class="custom-control-label" for="{{$str}}D">B+</label>
@@ -142,7 +148,7 @@
                             <label class="custom-control-label" for="{{$str}}F">B-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}G" name="{{$str}}" value="C+">
                             <label class="custom-control-label" for="{{$str}}G">C+</label>
@@ -156,7 +162,7 @@
                             <label class="custom-control-label" for="{{$str}}I">C-</label>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around lineheights">
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="{{$str}}J" name="{{$str}}" value="D">
                             <label class="custom-control-label" for="{{$str}}J">D</label>

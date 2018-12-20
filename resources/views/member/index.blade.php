@@ -78,10 +78,10 @@
                                 <input  type="checkbox" id="xyz"/>
 
                         </th>
-                        <th>学期</th>
+                        {{--<th>学期</th>--}}
                         <th>学号</th>
                         <th>姓名</th>
-                        <th>性别</th>
+                        {{--<th>性别</th>--}}
                         <th>院系</th>
                         <th>年级</th>
                         <th>手机号</th>
@@ -96,21 +96,21 @@
                                 <td>
                                         <input type="checkbox" class="ace"  value="{{$page->id}}"/>
                                 </td>
-                                <td>
-                                    @php
-                                    $term = \App\Term::find($page->term_id);
-                                    @endphp
-                                    {{$term->name}}
-                                </td>
+                                {{--<td>--}}
+                                    {{--@php--}}
+                                    {{--$term = \App\Term::find($page->term_id);--}}
+                                    {{--@endphp--}}
+                                    {{--{{$term->name}}--}}
+                                {{--</td>--}}
                                 <td>
                                     {{$page->stuid}}
                                 </td>
                                 <td>
                                     {{$page->name}}
                                 </td>
-                                <td>
-                                    {{$page->sex}}
-                                </td>
+                                {{--<td>--}}
+                                    {{--{{$page->sex}}--}}
+                                {{--</td>--}}
                                 <td>
                                     @php
                                     $school = \App\School::find($page->school_id);
@@ -143,9 +143,9 @@
                                     {{$page->message_num}}
                                 </td>
                                 <td>
-                                    {{--<a href="javascript:void(0);" onclick="genID({{$page->id}})">--}}
-                                        {{--生成特定URL--}}
-                                    {{--</a>--}}
+                                    <a href="javascript:void(0);" onclick="genID({{$page->id}})">
+                                        生成特定URL
+                                    </a>
                                     {{--<a href="{{url("/test")}}">--}}
                                         {{--URL--}}
                                     {{--</a>--}}

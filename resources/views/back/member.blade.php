@@ -92,14 +92,14 @@
                 <div class="card-body" style="padding-top: 0%;">
                     <table class=" table" id="tbody">
                         <thead>
-                        <th id="xyz" >
-                            <input  type="checkbox" id="xyz"/>
+                        {{--<th id="xyz" >--}}
+                            {{--<input  type="checkbox" id="xyz"/>--}}
 
-                        </th>
-                        <th>学期</th>
+                        {{--</th>--}}
+                        {{--<th>学期</th>--}}
                         <th>学号</th>
                         <th>姓名</th>
-                        <th>性别</th>
+                        {{--<th>性别</th>--}}
                         <th>院系</th>
                         <th>年级</th>
                         <th>手机号</th>
@@ -111,24 +111,24 @@
                         {{--style="background-color: #66afe9"--}}
                         @foreach($members as $page)
                             <tr  >
-                                <td>
-                                    <input type="checkbox" class="ace"  value="{{$page->id}}"/>
-                                </td>
-                                <td>
-                                    @php
-                                        $term = \App\Term::find($page->term_id);
-                                    @endphp
-                                    {{$term->name}}
-                                </td>
+                                {{--<td>--}}
+                                    {{--<input type="checkbox" class="ace"  value="{{$page->id}}"/>--}}
+                                {{--</td>--}}
+                                {{--<td>--}}
+                                    {{--@php--}}
+                                        {{--$term = \App\Term::find($page->term_id);--}}
+                                    {{--@endphp--}}
+                                    {{--{{$term->name}}--}}
+                                {{--</td>--}}
                                 <td>
                                     {{$page->stuid}}
                                 </td>
                                 <td>
                                     {{$page->name}}
                                 </td>
-                                <td>
-                                    {{$page->sex}}
-                                </td>
+                                {{--<td>--}}
+                                    {{--{{$page->sex}}--}}
+                                {{--</td>--}}
                                 <td>
                                     @php
                                         $school = \App\School::find($page->school_id);
