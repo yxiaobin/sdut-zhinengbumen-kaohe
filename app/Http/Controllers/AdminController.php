@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Member;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,7 +17,7 @@ class AdminController extends Controller
     public function store(Request $request){
         $tab = 2;
         $this->validate($request,[
-            'usrname'=>'required',
+            'usrname'=>'required|min:4',
             'password'=>'confirmed|min:4|max:15',
             'isadmin'=>'required',
             'islogin'=>'required',
@@ -43,8 +44,10 @@ class AdminController extends Controller
         $id->save();
         return  back();
     }
-    public function show(Admin $id){
-        $id->password = "666666";
+    public function show($id){
+        $member = Admin::find($id);
+        $member->password = encrypt("666666");
+        $member->save();
         return back();
     }
     public function delete(Admin $id){
