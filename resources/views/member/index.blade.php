@@ -88,6 +88,7 @@
                         <th>是否投票</th>
                         <th>发送时间</th>
                         <th>发送次数</th>
+                        <th>生成链接</th>
                         </thead>
                         <tbody id="sbody">
                         {{--style="background-color: #66afe9"--}}
@@ -144,8 +145,9 @@
                                 </td>
                                 <td>
                                     <a href="javascript:void(0);" onclick="genID({{$page->id}})">
-                                        生成特定URL
+                                        <input type="button" class="btn btn-primary" value="生成特定URL">
                                     </a>
+
                                     {{--<a href="{{url("/test")}}">--}}
                                         {{--URL--}}
                                     {{--</a>--}}
