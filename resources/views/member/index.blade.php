@@ -145,20 +145,16 @@
                                 </td>
                                 <td>
                                     <a href="javascript:void(0);" onclick="genID({{$page->id}})">
-                                        <input type="button" class="btn btn-primary" value="生成特定URL">
+                                        <input type="button" class="btn btn-primary" value="Link">
                                     </a>
-
                                     {{--<a href="{{url("/test")}}">--}}
                                         {{--URL--}}
                                     {{--</a>--}}
                                     <script>
                                         function genID(num) {
                                             var stuid = num;
-                                            // url = "stu_info.html?name=xiaoming&age=10"
                                             var ss = "id=" + stuid;
-                                            console.log(ss);
                                             url = "start?"+window.btoa(ss);
-                                            console.log(url);
                                             window.open(url);
                                         }
                                     </script>
@@ -346,7 +342,8 @@
             for (var i = 1; i < icheck.length; i++) {
                 if (icheck[i].checked) {
                     console.log(icheck[i].value);
-                    let  x =  "start?" + window.btoa("id=" + icheck[i].value);
+                    ss = "id=" + icheck[i].value;
+                    let  x =  "start?" + window.btoa(ss);
                     x = x + '@'+ icheck[i].value;
                     console.log(window.btoa(icheck[i].value));
                     items.push(x);        // 将id都放进数组

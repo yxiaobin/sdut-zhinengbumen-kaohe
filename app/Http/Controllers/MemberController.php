@@ -59,7 +59,11 @@ class MemberController extends Controller
 //批量删除
     public  function  delmany(Request $request){
         for ($i=0; $i<count($request['keys']); $i++) {
-            $res = Member::where('id', '=',$request['keys'][$i])->get()[0]->delete();   // 遍历删除
+            $res = Member::where('id', '=',$request['keys'][$i])->get();   // 遍历删除
+            if(count($res) >0 ){
+                $res = $res->first();
+                $res->delete();
+            }
         }
         if ($res) {
             $data = [
@@ -85,21 +89,23 @@ class MemberController extends Controller
 //          构造网站
             $html = $result[0];
 //          寻找member
-            $res = Member::where('id', '=',$result[1])->get()[0];   // 遍历删除
-            if ($res->finish == 0 && $res->message_num <3) {
+            $res = Member::where('id', '=',$result[1])->get();
+            if(count($res) > 0){
+                $res = $res->first();
+                if ($res->finish == 0 && $res->message_num <3) {
 //           发送次数加1
-                $res->message_num = $res->message_num +1;
-                $res->updated_at = Carbon::now();
-                $res->save();
-                //构造电话号码
-                $phoneNumbers = $res->phone;
+                    $res->message_num = $res->message_num +1;
+                    $res->updated_at = Carbon::now();
+                    $res->save();
+                    //构造电话号码
+                    $phoneNumbers = $res->phone;
 //            构造学期
-                $term= Term::find($res->term_id);
+                    $term= Term::find($res->term_id);
 //          发送
-                $aliSms = new AliSms();
-                $res = $aliSms->sendSms($phoneNumbers, 'SMS_152281024', ['year' => $term->name, 'code' => $result[0]]);
+                    $aliSms = new AliSms();
+                    $res = $aliSms->sendSms($phoneNumbers, 'SMS_152281024', ['year' => $term->name, 'code' => $result[0]]);
+                }
             }
-
         }
         if ($res) {
             $data = [
