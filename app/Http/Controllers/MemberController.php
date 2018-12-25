@@ -103,7 +103,7 @@ class MemberController extends Controller
                     $term= Term::find($res->term_id);
 //          发送
                     $aliSms = new AliSms();
-                    $res = $aliSms->sendSms($phoneNumbers, 'SMS_152281024', ['year' => $term->name, 'code' => $result[0]]);
+                    $res = $aliSms->sendSms($phoneNumbers, 'SMS_153332503', ['year' => $term->name, 'code' => $result[0]]);
                 }
             }
         }
