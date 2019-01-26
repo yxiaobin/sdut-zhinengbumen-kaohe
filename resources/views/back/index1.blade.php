@@ -65,7 +65,6 @@
                                 $key = \App\BumenTerm::where("bumen_id",'=',$p->id)->where('term_id','=',$term->id)->get();
                                 if(count($key) <=0){
                                     $key = new  \App\BumenTerm();
-
                                 }else{
                                     $key = $key->first();
                                 }
@@ -79,23 +78,52 @@
                                     {{count($members)}}
                                 </th>
                                 <th colspan="2">
-                                    A+({{$key->p1A}});
-                                    A({{$key->p2A}});
-                                    A-({{$key->p3A}});
-                                    B+({{$key->p1B}});
-                                    B({{$key->p2B}});
-                                    B-({{$key->p3B}});
-                                    C+({{$key->p1C}});
-                                    C({{$key->p2C}});
-                                    C-({{$key->p3C}});
-                                    D({{$key->p2D}})
+                                    @php
+                                    $z1 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','A+')->get();
+                                    $z2 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','A')->get();
+                                    $z3 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','A-')->get();
+                                    $z4 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','B+')->get();
+                                    $z5 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','B')->get();
+                                    $z6 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','B-')->get();
+                                    $z7 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','C+')->get();
+                                    $z8 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','C')->get();
+                                    $z9 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','C-')->get();
+                                    $z10 = \App\BumenForm::where('term_id','=',$term->id)->where("bumen_id",'=',$p->id)->where("p1",'=','D')->get();
+                                    @endphp
+
+                                    A+ ({{count($z1)}});
+                                    A  ({{count($z2)-4}});
+                                    A- ({{count($z3)}});
+                                    B+ ({{count($z4)}});
+                                    B  ({{count($z5)}});
+                                    B- ({{count($z6)}});
+                                    C+ ({{count($z7)}});
+                                    C  ({{count($z8)}});
+                                    C- ({{count($z9)}});
+                                    D  ({{count($z10)}});
+
+                                    {{--A+({{$key->p1A}});--}}
+                                    {{--A({{$key->p2A}});--}}
+                                    {{--A-({{$key->p3A}});--}}
+                                    {{--B+({{$key->p1B}});--}}
+                                    {{--B({{$key->p2B}});--}}
+                                    {{--B-({{$key->p3B}});--}}
+                                    {{--C+({{$key->p1C}});--}}
+                                    {{--C({{$key->p2C}});--}}
+                                    {{--C-({{$key->p3C}});--}}
+                                    {{--D({{$key->p2D}})--}}
+                                    @php
+                                       $zongji = count($z1)+count($z2)+count($z3)+count($z4)+count($z5)+
+                                    count($z6)+count($z7)+count($z8)+count($z9)+count($z10)-4;
+                                    @endphp
+                                    总计:{{$zongji}}
                                 </th>
                                 <th>
                                     @php
-                                    $sum = (100*$key->p1A)+(95*$key->p2A)+(90*$key->p3A)
-                                    +(85*$key->p1B)+(80*$key->p2B)+(75*$key->p3B)
-                                    +(70*$key->p1C)+(65*$key->p2C)+(60*$key->p3C)
-                                    +(50*$key->p2D);
+                                    $sum = (100*count($z1))+(95*(count($z2)-4))+(90*count($z3))
+                                    +(85*count($z4))+(80*count($z5))+(75*count($z6))
+                                    +(70*count($z7))+(65*count($z8))+(60*count($z9))
+                                    +(50*count($z10));
                                     $ans = count($members);
                                      if($ans !=0){
                                             $num = sprintf("%.2f",$sum/$ans);
@@ -149,6 +177,7 @@
                                     {{count($members)}}
                                 </th>
                                 <th colspan="2">
+
                                     A+({{$key->p1A}});
                                     A({{$key->p2A}});
                                     A-({{$key->p3A}});
@@ -159,6 +188,11 @@
                                     C({{$key->p2C}});
                                     C-({{$key->p3C}});
                                     D({{$key->p2D}})
+                                    @php
+                                        $zongji = $key->p1A+$key->p2A+$key->p3A+$key->p1B+$key->p2B+$key->p3B
+                                         +$key->p1C+$key->p2C+$key->p3C+$key->p2D;
+                                    @endphp
+                                    总计:{{$zongji}}
                                 </th>
                                 <th>
                                     @php
